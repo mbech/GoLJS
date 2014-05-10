@@ -1,6 +1,8 @@
 $( document ).ready( function(){
   Board.zero(Board.state);
-  Board.setAlive(Board.state, [7,12,17])
+  Board.setAlive(Board.state, [1,2])
+  Board.setAlive(Board.state, [2,2])
+  Board.setAlive(Board.state, [3,2])
   View.drawBoard(Board)
 })
 
@@ -21,19 +23,15 @@ var View = {
 }
 
 var Board = {
-  size: 10,
+  size: 5,
   state: Array(this.size^2),
 
-  setAlive: function(stateArray, indexArray){
-    for (var i = 0; i < indexArray.length; i++) {
-      stateArray[indexArray[i]] = 1;
-    };
+  setAlive: function(stateArray, coord){
+      stateArray[coord[0]*this.size + coord[1]] = 1;
   },
 
-  setDead: function(stateArray, indexArray){
-    for (var i = 0; i < indexArray.length; i++) {
-      stateArray[indexArray[i]] = 0;
-    };
+  setDead: function(stateArray, coord){
+      stateArray[coord[0]*this.size + coord[1]] = 0;
   },
 
   zero: function(stateArray){
