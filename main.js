@@ -1,22 +1,17 @@
 $( document ).ready( function(){
-  testGridSize = 5
-  testArray = Array(testGridSize^2)
-  for (var i = 0; i < testArray.length; i++){
-    testArray[i] = 0;
-  }
-  testArray[7], testArray[11], testArray[12], testArray[13], testArray[17] = 1
-  console.log(testArray)
-  View.drawBoard(testGridSize, testArray)
+  Board.zero(Board.state);
+  Board.setAlive(Board.state, [7,12,17])
+  View.drawBoard(Board)
 })
 
 var View = {
-  drawBoard: function(gridSize, stateArray){
-    for (var i = 0; i < gridSize; i++) {
+  drawBoard: function(board){
+    for (var i = 0; i < board.size; i++) {
       $('#board-container').append("<div class='gol-row' id='row" + i + "'></div>")
-      for (var j = 0; j<gridSize; j++){
-        squareId = i * gridSize + j
+      for (var j = 0; j<board.size; j++){
+        squareId = i * board.size + j
         squareState = "dead"
-        if (stateArray[squareId] === 1) {
+        if (board.state[squareId] === 1) {
           squareState = "alive"
         };
         $('#row' + i).append("<div class='gol-square " + squareState + "' id='square" + squareId +"''></div>")
@@ -25,3 +20,25 @@ var View = {
   }
 }
 
+var Board = {
+  size: 10,
+  state: Array(this.size^2),
+
+  setAlive: function(stateArray, indexArray){
+    for (var i = 0; i < indexArray.length; i++) {
+      stateArray[indexArray[i]] = 1;
+    };
+  },
+
+  setDead: function(stateArray, indexArray){
+    for (var i = 0; i < indexArray.length; i++) {
+      stateArray[indexArray[i]] = 0;
+    };
+  },
+
+  zero: function(stateArray){
+    for (var i = 0; i < stateArray.length; i++){
+    stateArray[i] = 0;
+    }
+  }
+}
