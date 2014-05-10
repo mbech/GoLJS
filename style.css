@@ -1,0 +1,20 @@
+.gol-row{
+  height: 50px;
+}
+
+.gol-square{
+  display:inline-block;
+  width: 50px;
+  height: 50px;
+  margin: 0px 0px;
+}
+
+.living{
+  background-color: black;
+}
+
+.dead{
+  height: 48px;
+  width: 48px;
+  border: 1px solid black;
+}
