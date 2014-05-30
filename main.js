@@ -23,7 +23,7 @@ var View = {
 }
 
 var Board = {
-  size: 5,
+  size: 10,
   state: Array(this.size^2),
 
   setAlive: function(stateArray, coord){
