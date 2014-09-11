@@ -22,26 +22,4 @@ var View = {
   }
 }
 
-var Board = {
-  width: 10,
-  height: 10,
-  state: Array(100),
-
-  setAlive: function(coord){
-      this.state[coord[0]*this.height + coord[1]] = 1;
-  },
-
-  setDead: function(coord){
-      this.state[coord[0]*this.height+ coord[1]] = 0;
-  },
-
-  zero: function(){
-    for (var i = 0; i < this.state.length; i++){
-    this.state[i] = 0;
-    }
-  },
-
-  initRandom: function(){
-
-  }
 }
