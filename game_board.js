@@ -60,7 +60,7 @@ function nextCellState(cell_loc){
     neighbors[5] = 1;
   }
   //bottom-left neighbor check
-  if(cell_loc[1] == 0 || cell_loc[0] == (Board.height - 1) || getState(([cell_loc[0] - 1), (cell_loc[1] - 1)]) == 1){
+  if(cell_loc[1] == 0 || cell_loc[0] == (Board.height - 1) || getState([(cell_loc[0] - 1), (cell_loc[1] - 1)]) == 1){
     neighbors[6] = 1;
   }
   //top-left neighbor check
@@ -75,5 +75,5 @@ function nextCellState(cell_loc){
   if(total_live_neighbors < 2 || total_live_neighbors > 3){return 0;}
   //Any live cell with two or three live neighbours lives on to the next generation.
   //Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
-  if(total_live_neighbors == 2 || total_live_neighbors == 3){return 1}
+  if(total_live_neighbors == 2 || total_live_neighbors == 3){return 1;}
 } 
