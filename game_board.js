@@ -8,22 +8,22 @@ var Board = {
   },
 
   setDead: function(coord){
-             this.state[coord[0]*this.height+ coord[1]] = 0;
-           },
+    this.state[coord[0]*this.height+ coord[1]] = 0;
+  },
 
   zero: function(){
-          for (var i = 0; i < this.state.length; i++){
-            this.state[i] = 0;
-          }
-        },
+    for (var i = 0; i < this.state.length; i++){
+      this.state[i] = 0;
+    }
+  },
 
   populateRandom: function(){
 
-                  },
+  },
 
   nextState: function(){
-               //Iterate over cells and figure out the next board state
-             }
+    //Iterate over cells and figure out the next board state
+  }
 }
 
 function getState(cell_loc){
