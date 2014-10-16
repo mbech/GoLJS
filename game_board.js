@@ -37,7 +37,7 @@ board.nextState= function(){
       new_board_state[(i * this.height + j)] = this.nextCellState([i,j]);
     }
   }
-  return new_board_state;
+  this.state = new_board_state;
 };
 
 board.getState = function (cell_loc){
