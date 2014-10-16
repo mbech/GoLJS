@@ -5,13 +5,13 @@ body{
 }
 
 .gol-row{
-  height: 50px;
+  height: 30px;
 }
 
 .gol-square{
   display:inline-block;
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
   margin: 0px 0px;
 }
 
@@ -20,8 +20,8 @@ body{
 }
 
 .dead{
-  height: 48px;
-  width: 48px;
+  height: 28px;
+  width: 28px;
   border: 1px solid white;
 }
 
