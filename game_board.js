@@ -33,7 +33,6 @@ board.nextState= function(){
   var new_board_state = [];
   for (var i = 0;  i < this.width; i++) {
     for (var j = 0; j < this.height; j++) {
-      console.log("[i,j] is: " + i + ", " + j);
       new_board_state[(i * this.height + j)] = this.nextCellState([i,j]);
     }
   }
@@ -66,7 +65,7 @@ board.nextCellState = function (cell_loc){
   }
 
   //top-right neighbor check
-  if(this.getState([(cell_loc[0] - 1), (cell_loc[1] + 1)]) === 1){
+  if(this.getState([(cell_loc[0] + 1), (cell_loc[1] + 1)]) === 1){
     neighbors[4] = 1;
   }
   //bottom-right neighbor check
@@ -78,9 +77,11 @@ board.nextCellState = function (cell_loc){
     neighbors[6] = 1;
   }
   //top-left neighbor check
-  if(this.getState([(cell_loc[0] - 1), (cell_loc[1] - 1)]) === 1){
+  if(this.getState([(cell_loc[0] + 1), (cell_loc[1] - 1)]) === 1){
     neighbors[7] = 1;
   }
+
+  console.log(neighbors)
 
   var total_live_neighbors = neighbors.reduce(function(a, b) { return a + b; });
   //Rules are as follows for next state:
@@ -88,6 +89,7 @@ board.nextCellState = function (cell_loc){
   //Any live cell with more than three live neighbours dies, as if by overcrowding.
   if (total_live_neighbors < 2 || total_live_neighbors > 3){return 0;}
   //Any live cell with two or three live neighbours lives on to the next generation.
+  if(this.getState(cell_loc) === 1 && total_live_neighbors === 2){return 1;}
   //Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
-  if(total_live_neighbors === 2 || total_live_neighbors === 3){return 1;}
+  if(this.getState(cell_loc) === 0 && total_live_neighbors === 3){return 1;}
 }; 
