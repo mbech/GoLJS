@@ -46,39 +46,39 @@ board.getState = function (cell_loc){
 
 board.nextCellState = function (cell_loc){
   //return next state of passed-in cell
-  //ASSUMES BORDERS (FIRST CELL BEYOND GRID) ARE ALL LIVE CELLS
+  //ASSUMES BORDERS (FIRST CELL BEYOND GRID) ARE ALL DEAD CELLS
   var neighbors = [0,0,0,0,0,0,0,0]; //top, right, bottom, left, t-r, b-r, b-l, t-l
   //top neighbor check
-  if(cell_loc[0] === 0 || this.getState([(cell_loc[0] - 1), cell_loc[1]]) === 1){
+  if(this.getState([(cell_loc[0] - 1), cell_loc[1]]) === 1){
     neighbors[0] = 1;
   }
   //right neighbor check
-  if(cell_loc[1] === (this.width - 1) || this.getState([cell_loc[0], (cell_loc[1] + 1)]) === 1){
+  if(this.getState([cell_loc[0], (cell_loc[1] + 1)]) === 1){
     neighbors[1] = 1;
   }
   //bottom neighbor check
-  if(cell_loc[0] === (this.height - 1) || this.getState([(cell_loc[0] + 1), cell_loc[1]]) === 1){
+  if(this.getState([(cell_loc[0] + 1), cell_loc[1]]) === 1){
     neighbors[2] = 1;
   }
   //left neighbor check
-  if(cell_loc[1] === 0 || this.getState([cell_loc[0], (cell_loc[1] - 1)]) === 1){
+  if(this.getState([cell_loc[0], (cell_loc[1] - 1)]) === 1){
     neighbors[3] = 1;
   }
 
   //top-right neighbor check
-  if(cell_loc[0] === 0 || cell_loc[1] === (this.width - 1) || this.getState([(cell_loc[0] - 1), (cell_loc[1] + 1)]) === 1){
+  if(this.getState([(cell_loc[0] - 1), (cell_loc[1] + 1)]) === 1){
     neighbors[4] = 1;
   }
   //bottom-right neighbor check
-  if(cell_loc[1] === (this.width - 1) || cell_loc[0] === (this.height - 1) || this.getState([(cell_loc[0] - 1), (cell_loc[1] + 1)]) === 1){
+  if(this.getState([(cell_loc[0] - 1), (cell_loc[1] + 1)]) === 1){
     neighbors[5] = 1;
   }
   //bottom-left neighbor check
-  if(cell_loc[1] === 0 || cell_loc[0] === (this.height - 1) || this.getState([(cell_loc[0] - 1), (cell_loc[1] - 1)]) === 1){
+  if(this.getState([(cell_loc[0] - 1), (cell_loc[1] - 1)]) === 1){
     neighbors[6] = 1;
   }
   //top-left neighbor check
-  if(cell_loc[0] === 0 || cell_loc[1] === 0 || this.getState([(cell_loc[0] - 1), (cell_loc[1] - 1)]) === 1){
+  if(this.getState([(cell_loc[0] - 1), (cell_loc[1] - 1)]) === 1){
     neighbors[7] = 1;
   }
 
