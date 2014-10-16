@@ -1,15 +1,15 @@
 var board = {
-  width: 10,
-  height: 10,
-  state: Array(100)
+  width: 20,
+  height: 20,
+  state: Array(400)
 };
 
 board.setAlive = function(coord){
-  this.state[coord[0]*this.height + coord[1]] = 1;
+  this.state[coord[0]*this.width + coord[1]] = 1;
 };
 
 board.setDead = function(coord){
-  this.state[coord[0]*this.height+ coord[1]] = 0;
+  this.state[coord[0]*this.width + coord[1]] = 0;
 };
 
 board.zero = function(){
@@ -33,14 +33,14 @@ board.nextState= function(){
   var new_board_state = [];
   for (var i = 0;  i < this.width; i++) {
     for (var j = 0; j < this.height; j++) {
-      new_board_state[(i * this.height + j)] = this.nextCellState([i,j]);
+      new_board_state[(i * this.width + j)] = this.nextCellState([i,j]);
     }
   }
   this.state = new_board_state;
 };
 
 board.getState = function (cell_loc){
-  return this.state[(cell_loc[0]*this.height + cell_loc[1])];
+  return this.state[(cell_loc[0]*this.width + cell_loc[1])];
 };
 
 board.nextCellState = function (cell_loc){

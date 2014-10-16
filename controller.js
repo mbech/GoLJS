@@ -13,10 +13,10 @@ var view = {};
 
 view.drawboard = function(board){
   $('#board-container').empty();
-  for (var i = 0; i < board.width; i++) {
+  for (var i = 0; i < board.height; i++) {
     $('#board-container').append("<div class='gol-row' id='row" + i + "'></div>");
-    for (var j = 0; j<board.height; j++){
-      squareId = i * board.width + j;
+    for (var j = 0; j<board.width; j++){
+      squareId = i * board.width+ j;
       squareState = "dead";
       if (board.state[squareId] === 1) {
         squareState = "alive";
