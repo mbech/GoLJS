@@ -1,37 +1,37 @@
 var board = {
   width: 10,
   height: 10,
-  state: Array(100),
-}
+  state: Array(100)
+};
 
 board.setAlive = function(coord){
-    this.state[coord[0]*this.height + coord[1]] = 1;
-  }
+  this.state[coord[0]*this.height + coord[1]] = 1;
+};
 
-  board.setDead = function(coord){
-    this.state[coord[0]*this.height+ coord[1]] = 0;
-  }
+board.setDead = function(coord){
+  this.state[coord[0]*this.height+ coord[1]] = 0;
+};
 
-  board.zero = function(){
-    for (var i = 0; i < this.state.length; i++){
-      this.state[i] = 0;
+board.zero = function(){
+  for (var i = 0; i < this.state.length; i++){
+    this.state[i] = 0;
+  }
+};
+
+board.populateRandom = function(){
+  for (var i = 0, l = board.state.length; i < l; i ++) {
+    if (Math.random() >= 0.5){
+      board.state[i] = 1;
+    } else {
+      board.state[i] = 0; 
     }
   }
+};
 
-  board.populateRandom = function(){
-    for (var i = 0, l = board.state.length; i < l; i ++) {
-      if (Math.random() >= 0.5){
-        board.state[i] = 1;
-      } else {
-        board.state[i] = 0; 
-      }
-    }
-  }
+board.setNextState= function(){
+  //Iterate over cells and figure out the next board state
 
-  board.nextState= function(){
-    //Iterate over cells and figure out the next board state
-  }
-
+};
 
 var getState = function (cell_loc){
   return board.state[(cell_loc[0]*board.height + cell_loc[1])];
