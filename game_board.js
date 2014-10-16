@@ -26,11 +26,11 @@ var Board = {
   }
 };
 
-function getState(cell_loc){
+var getState = function (cell_loc){
   return Board.state[(cell_loc[0]*Board.height + cell_loc[1])];
-}
+};
 
-function nextCellState(cell_loc){
+var nextCellState = function (cell_loc){
   //return next state of passed-in cell
   //ASSUMES BORDERS (FIRST CELL BEYOND GRID) ARE ALL LIVE CELLS
   var neighbors = [0,0,0,0,0,0,0,0]; //top, right, bottom, left, t-r, b-r, b-l, t-l
@@ -76,4 +76,4 @@ function nextCellState(cell_loc){
   //Any live cell with two or three live neighbours lives on to the next generation.
   //Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
   if(total_live_neighbors === 2 || total_live_neighbors === 3){return 1;}
-} 
+}; 
