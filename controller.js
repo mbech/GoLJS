@@ -3,11 +3,12 @@ $( document ).ready( function(){
   board.setAlive([1,2]);
   board.setAlive([2,2]);
   board.setAlive([3,2]);
-  View.drawboard(board);
+  view.drawboard(board);
 });
 
-var View = {
-  drawboard: function(board){
+var view = {};
+
+view.drawboard = function(board){
     for (var i = 0; i < board.width; i++) {
       $('#board-container').append("<div class='gol-row' id='row" + i + "'></div>");
       for (var j = 0; j<board.height; j++){
@@ -20,6 +21,6 @@ var View = {
       }
     }
   }
-};
+
 
 
