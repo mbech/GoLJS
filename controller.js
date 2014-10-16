@@ -4,10 +4,7 @@ $( document ).ready( function(){
   board.setAlive([2,2]);
   board.setAlive([3,2]);
   view.drawboard(board);
-  window.onclick = function(){
-    board.nextState();
-    view.drawboard(board);
-  };
+  initialBindings();
 });
 
 var view = {};
