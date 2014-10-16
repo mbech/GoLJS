@@ -18,7 +18,13 @@ var Board = {
   },
 
   populateRandom: function(){
-
+    for (var i = 0, l = Board.state.length; i < l; i ++) {
+      if (Math.random() >= 0.5){
+        Board.state[i] = 1;
+      } else {
+        Board.state[i] = 0; 
+      }
+    }
   },
 
   nextState: function(){
