@@ -1,39 +1,40 @@
-var Board = {
+var board = {
   width: 10,
   height: 10,
   state: Array(100),
+}
 
-  setAlive: function(coord){
+board.setAlive = function(coord){
     this.state[coord[0]*this.height + coord[1]] = 1;
-  },
+  }
 
-  setDead: function(coord){
+  board.setDead = function(coord){
     this.state[coord[0]*this.height+ coord[1]] = 0;
-  },
+  }
 
-  zero: function(){
+  board.zero = function(){
     for (var i = 0; i < this.state.length; i++){
       this.state[i] = 0;
     }
-  },
+  }
 
-  populateRandom: function(){
-    for (var i = 0, l = Board.state.length; i < l; i ++) {
+  board.populateRandom = function(){
+    for (var i = 0, l = board.state.length; i < l; i ++) {
       if (Math.random() >= 0.5){
-        Board.state[i] = 1;
+        board.state[i] = 1;
       } else {
-        Board.state[i] = 0; 
+        board.state[i] = 0; 
       }
     }
-  },
+  }
 
-  nextState: function(){
+  board.nextState= function(){
     //Iterate over cells and figure out the next board state
   }
-};
+
 
 var getState = function (cell_loc){
-  return Board.state[(cell_loc[0]*Board.height + cell_loc[1])];
+  return board.state[(cell_loc[0]*board.height + cell_loc[1])];
 };
 
 var nextCellState = function (cell_loc){
@@ -45,11 +46,11 @@ var nextCellState = function (cell_loc){
     neighbors[0] = 1;
   }
   //right neighbor check
-  if(cell_loc[1] === (Board.width - 1) || getState([cell_loc[0], (cell_loc[1] + 1)]) === 1){
+  if(cell_loc[1] === (board.width - 1) || getState([cell_loc[0], (cell_loc[1] + 1)]) === 1){
     neighbors[1] = 1;
   }
   //bottom neighbor check
-  if(cell_loc[0] === (Board.height - 1) || getState([(cell_loc[0] + 1), cell_loc[1]]) === 1){
+  if(cell_loc[0] === (board.height - 1) || getState([(cell_loc[0] + 1), cell_loc[1]]) === 1){
     neighbors[2] = 1;
   }
   //left neighbor check
@@ -58,15 +59,15 @@ var nextCellState = function (cell_loc){
   }
 
   //top-right neighbor check
-  if(cell_loc[0] === 0 || cell_loc[1] === (Board.width - 1) || getState([(cell_loc[0] - 1), (cell_loc[1] + 1)]) === 1){
+  if(cell_loc[0] === 0 || cell_loc[1] === (board.width - 1) || getState([(cell_loc[0] - 1), (cell_loc[1] + 1)]) === 1){
     neighbors[4] = 1;
   }
   //bottom-right neighbor check
-  if(cell_loc[1] === (Board.width - 1) || cell_loc[0] === (Board.height - 1) || getState([(cell_loc[0] - 1), (cell_loc[1] + 1)]) === 1){
+  if(cell_loc[1] === (board.width - 1) || cell_loc[0] === (board.height - 1) || getState([(cell_loc[0] - 1), (cell_loc[1] + 1)]) === 1){
     neighbors[5] = 1;
   }
   //bottom-left neighbor check
-  if(cell_loc[1] === 0 || cell_loc[0] === (Board.height - 1) || getState([(cell_loc[0] - 1), (cell_loc[1] - 1)]) === 1){
+  if(cell_loc[1] === 0 || cell_loc[0] === (board.height - 1) || getState([(cell_loc[0] - 1), (cell_loc[1] - 1)]) === 1){
     neighbors[6] = 1;
   }
   //top-left neighbor check
@@ -78,7 +79,7 @@ var nextCellState = function (cell_loc){
   //Rules are as follows for next state:
   //Any live cell with fewer than two live neighbours dies, as if caused by under-population.
   //Any live cell with more than three live neighbours dies, as if by overcrowding.
-  if(total_live_neighbors < 2 || total_live_neighbors > 3){return 0;}
+  if (total_live_neighbors < 2 || total_live_neighbors > 3){return 0;}
   //Any live cell with two or three live neighbours lives on to the next generation.
   //Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
   if(total_live_neighbors === 2 || total_live_neighbors === 3){return 1;}

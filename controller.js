@@ -1,13 +1,13 @@
 $( document ).ready( function(){
-  Board.zero();
-  Board.setAlive([1,2]);
-  Board.setAlive([2,2]);
-  Board.setAlive([3,2]);
-  View.drawBoard(Board);
+  board.zero();
+  board.setAlive([1,2]);
+  board.setAlive([2,2]);
+  board.setAlive([3,2]);
+  View.drawboard(board);
 });
 
 var View = {
-  drawBoard: function(board){
+  drawboard: function(board){
     for (var i = 0; i < board.width; i++) {
       $('#board-container').append("<div class='gol-row' id='row" + i + "'></div>");
       for (var j = 0; j<board.height; j++){
