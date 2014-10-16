@@ -34,7 +34,7 @@ board.nextState= function(){
   for (var i = 0;  i < this.width; i++) {
     for (var j = 0; j < this.height; j++) {
       console.log("[i,j] is: " + i + ", " + j);
-      new_board_state[(i * this.height + j)] = this.nextCellState([i,j])  
+      new_board_state[(i * this.height + j)] = this.nextCellState([i,j]);
     }
   }
   return new_board_state;
