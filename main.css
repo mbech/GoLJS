@@ -5,24 +5,25 @@ body{
 }
 
 .gol-row{
-  height: 30px;
+  height: 25px;
 }
 
 .gol-square{
   display:inline-block;
-  width: 30px;
-  height: 30px;
   margin: 0px 0px;
+  width: 25px;
+  height: 25px;
 }
 
 .alive{
-  background-color: white;
+  background-color: #0BDA00;
 }
 
 .dead{
-  height: 28px;
-  width: 28px;
+  height: 23px;
+  width: 23px;
   border: 1px solid white;
+  background-color: black;
 }
 
 .board-buttons{
