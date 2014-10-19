@@ -1,6 +1,6 @@
 var automate = {
   active: false,
-  timestep: 1000
+  timestep: 500
 };
 
 automate.enable = function(){ 
