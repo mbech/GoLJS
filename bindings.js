@@ -15,8 +15,14 @@ var initialBindings = function(){
   });
 
   $('#automate-board').on('click', function(){
-    automate.enable();
-    automate.advance();
+    if(automate.active){
+      $(this).text("Auto-advance");
+      automate.disable();
+    }else{
+      $(this).text("Pause");
+      automate.enable();
+      automate.advance();
+    }
   });
 
 }
