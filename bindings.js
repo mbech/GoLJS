@@ -14,4 +14,9 @@ var initialBindings = function(){
     view.drawboard(board);
   });
 
+  $('#automate-board').on('click', function(){
+    automate.enable();
+    automate.advance();
+  });
+
 }
