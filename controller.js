@@ -24,7 +24,7 @@ view.drawboard = function(board){
       $('#row' + i).append("<div class='gol-square " + squareState + "' id='square" + squareId +"''></div>");
     }
   }
-}
+};
 
 
 

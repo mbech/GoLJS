@@ -5,20 +5,19 @@ var automate = {
 
 automate.enable = function(){ 
   this.active = true; 
-} 
+};
 
 automate.disable = function(){ 
   this.active = false; 
-} 
+}; 
 
 automate.set_timestep = function(timestep){
   this.timestep = timestep;
-}
+};
 
 automate.loop = function(){
-  setTimeout(this.advance, this.timestep) 
-
-}
+  setTimeout(this.advance, this.timestep);
+};
 
 automate.advance = function(){
   if (automate.active){
@@ -26,4 +25,4 @@ automate.advance = function(){
     view.drawboard(board);
     automate.loop();
   }
-}
+};
