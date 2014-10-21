@@ -1,6 +1,6 @@
 var view = {};
 
-view.drawboard = function(board){
+view.drawBoard = function(board){
   $('#board-container').empty();
   for (var i = 0; i < board.height; i++) {
     $('#board-container').append("<div class='gol-row' id='row" + i + "'></div>");
