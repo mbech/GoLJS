@@ -10,7 +10,7 @@ view.drawboard = function(board){
       if (board.state[squareId] === 1) {
         squareState = "alive";
       }
-      $('#row' + i).append("<div class='gol-square " + squareState + "' id='square" + squareId +"''></div>");
+      $('#row' + i).append("<div class='gol-square " + squareState + "' data-loc='" + squareId +"''></div>");
     }
   }
 };
