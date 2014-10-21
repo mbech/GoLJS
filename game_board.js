@@ -5,11 +5,19 @@ var board = {
 };
 
 board.setAlive = function(coord){
-  this.state[coord[0]*this.width + coord[1]] = 1;
+  if(typeof coord === "number"){
+    this.state[coord] = 1;
+  }else{
+    this.state[coord[0]*this.width + coord[1]] = 1;
+  }
 };
 
 board.setDead = function(coord){
+  if(typeof coord === "number"){
+    this.state[coord] = 0;
+  }else{
   this.state[coord[0]*this.width + coord[1]] = 0;
+  }
 };
 
 board.zero = function(){
