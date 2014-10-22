@@ -1,0 +1,2 @@
+1.  Time and Population Counters (text sidebar)
+2.  Fix boundary wrapping (make the edge cells always dead in nextCellState)  
