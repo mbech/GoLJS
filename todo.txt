@@ -1,2 +1,3 @@
 1.  Time and Population Counters (text sidebar)
 2.  Fix boundary wrapping (make the edge cells always dead in nextCellState)  
+3.  (Alternate) Version that dosn't use JQuery for comparison
