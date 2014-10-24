@@ -1,17 +1,17 @@
 var initialBindings = function(){
   $('#advance-board').on('click', function(){
     board.nextState();
-    view.drawBoard(board);
+    view.refresh(board);
   });
 
   $('#reset-board').on('click', function(){
     board.zero();
-    view.drawBoard(board);
+    view.refresh(board);
   });
 
   $('#randomize-board').on('click', function(){
     board.populateRandom();
-    view.drawBoard(board);
+    view.refresh(board);
   });
 
   $('#automate-board').on('click', function(){
@@ -33,7 +33,7 @@ var initialBindings = function(){
     }else{
       board.setAlive(cell_loc);
     }
-    view.drawBoard(board); 
+    view.refresh(board); 
   });
 
 };
