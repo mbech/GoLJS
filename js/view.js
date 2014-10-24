@@ -1,5 +1,10 @@
 var view = {};
 
+view.refresh = function(board){
+this.drawBoard(board);
+this.drawStats(board);
+};
+
 view.drawBoard = function(board){
   $('#board-container').empty();
   for (var i = 0; i < board.height; i++) {
@@ -15,5 +20,8 @@ view.drawBoard = function(board){
   }
 };
 
-
-
+view.drawStats = function(board){
+ board.updatePopulation();
+ $('#board-age').text("Age: " + board.age); 
+ $('#board-population').text("Population: " + board.population); 
+};
