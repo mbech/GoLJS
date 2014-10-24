@@ -34,8 +34,8 @@ var initialBindings = function(){
     automate.set_timestep($(this).val());
   });
 
-  $('#sidebar').on('click', function(){
-    $(this).toggle();
+  $('#sidebar-hide-strip').on('click', function(){
+    $('#sidebar').toggle();
     $('#sidebar-show-strip').toggle();
   });  
 
