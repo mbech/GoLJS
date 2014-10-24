@@ -22,7 +22,7 @@ automate.loop = function(){
 automate.advance = function(){
   if (automate.active){
     board.nextState();
-    view.drawBoard(board);
+    view.refresh(board);
     automate.loop();
   }
 };
