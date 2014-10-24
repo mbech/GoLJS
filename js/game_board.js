@@ -65,39 +65,41 @@ board.getState = function (cell_loc){
 
 board.nextCellState = function (cell_loc){
   //return next state of passed-in cell
-  //ASSUMES BORDERS (FIRST CELL BEYOND GRID) ARE ALL DEAD CELLS
+  //Acts as a sphere, top connects to bot, left to right edge
+  var row = cell_loc[0];
+  var col = cell_loc[1];
   var neighbors = [0,0,0,0,0,0,0,0]; //top, right, bottom, left, t-r, b-r, b-l, t-l
   //top neighbor check
-  if(this.getState([(cell_loc[0] - 1), cell_loc[1]]) === 1){
+  if(this.getState([(row - 1), col]) === 1){
     neighbors[0] = 1;
   }
   //right neighbor check
-  if(this.getState([cell_loc[0], (cell_loc[1] + 1)]) === 1){
+  if(this.getState([row, (col + 1)]) === 1){
     neighbors[1] = 1;
   }
   //bottom neighbor check
-  if(this.getState([(cell_loc[0] + 1), cell_loc[1]]) === 1){
+  if(this.getState([(row + 1), col]) === 1){
     neighbors[2] = 1;
   }
   //left neighbor check
-  if(this.getState([cell_loc[0], (cell_loc[1] - 1)]) === 1){
+  if(this.getState([row, (col - 1)]) === 1){
     neighbors[3] = 1;
   }
 
   //top-right neighbor check
-  if(this.getState([(cell_loc[0] + 1), (cell_loc[1] + 1)]) === 1){
+  if(this.getState([(row + 1), (col + 1)]) === 1){
     neighbors[4] = 1;
   }
   //bottom-right neighbor check
-  if(this.getState([(cell_loc[0] - 1), (cell_loc[1] + 1)]) === 1){
+  if(this.getState([(row - 1), (col + 1)]) === 1){
     neighbors[5] = 1;
   }
   //bottom-left neighbor check
-  if(this.getState([(cell_loc[0] - 1), (cell_loc[1] - 1)]) === 1){
+  if(this.getState([(row - 1), (col - 1)]) === 1){
     neighbors[6] = 1;
   }
   //top-left neighbor check
-  if(this.getState([(cell_loc[0] + 1), (cell_loc[1] - 1)]) === 1){
+  if(this.getState([(row + 1), (col - 1)]) === 1){
     neighbors[7] = 1;
   }
 
