@@ -1,8 +1,13 @@
 In no particular order:
-DONE.  Time and Population Counters (text sidebar)
-2.  Fix boundary wrapping (make the edge cells always dead in nextCellState)  
-3.  (Alternate post) Version that dosn't use JQuery for comparison
-4.  Add ">" "||" play/pause/resume icons to buttons
-5.  Cell color change with age -> e.g. light to dark
+Fix boundary wrapping (make the edge cells always dead in nextCellState)  
+  Or alternately wrap to connect top/bottom, left/right (cooler, harder)
+(Alternate post) Version that dosn't use JQuery for comparison
+
+Shelved:
+Add ">" "||" play/pause/resume icons to buttons - no unicode for font, messes up
+button heights
+
+Cell color change with age -> e.g. light to dark
       Perhaps store age as a data- value in html, add class for age > 2, age >
-      4, etc
+      4, etc.  Maybe makes more sense to have array storing cell objects with an
+      age property.
