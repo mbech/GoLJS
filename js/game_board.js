@@ -1,7 +1,9 @@
 var board = {
   width: 20,
   height: 20,
-  state: Array(400)
+  state: Array(400),
+  age: 0,
+  population: 0
 };
 
 board.setAlive = function(coord){
@@ -24,6 +26,7 @@ board.zero = function(){
   for (var i = 0; i < this.state.length; i++){
     this.state[i] = 0;
   }
+  this.age = 0;
 };
 
 board.populateRandom = function(){
@@ -34,6 +37,14 @@ board.populateRandom = function(){
       this.state[i] = 0; 
     }
   }
+  this.age = 0;
+};
+
+board.updatePopulation = function(){
+  this.population = this.state.reduce(function(prevValue, currentValue) {
+    return prevValue + currentValue;
+  })
+  return this.population;
 };
 
 board.nextState= function(){
@@ -45,6 +56,7 @@ board.nextState= function(){
     }
   }
   this.state = new_board_state;
+  this.age += 1;
 };
 
 board.getState = function (cell_loc){
