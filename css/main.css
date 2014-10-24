@@ -1,8 +1,36 @@
 body{
   font-family: 'Orbitron', sans-serif;
-  text-align:center;
-  margin-top: 20px; 
   background-color:black;
+  height: 800px;
+  margin: 0 0;
+}
+
+#main-container{
+  text-align:center;
+  padding-top: 20px; 
+  width: 70%;
+}
+
+#sidebar{
+  color: #0BDA00;
+  float: right;
+  height: 100%;
+  width: 30%;
+  padding:0 2%;
+  border-left: 10px ridge #0BDA00;
+}
+
+li{
+padding: 5px;
+}
+
+a{
+color:  white;
+}
+
+a:hover{
+  color: green;
+  text-decoration: none;
 }
 
 .gol-row{
@@ -28,12 +56,9 @@ body{
 }
 
 .stat-display{
- margin: auto; 
- background-color: white;
- color: black;
+  margin: auto;
  font-size: 1.5em;
  width: 500px; 
-  background-color: black;
 }
 
 .stat-display div{
