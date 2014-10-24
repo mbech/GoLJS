@@ -5,6 +5,10 @@ var initialBindings = function(){
   });
 
   $('#reset-board').on('click', function(){
+    if(automate.active){
+      $('#automate-board').text("Auto-advance");
+      automate.disable();
+    }  
     board.zero();
     view.refresh(board);
   });
