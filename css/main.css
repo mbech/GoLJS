@@ -53,3 +53,8 @@ button{
   background-color: black;
   border: 3px ridge silver;
 }
+
+button:hover{
+  background-color: #0BDA00;
+  color: black;
+}
