@@ -60,7 +60,16 @@ board.nextState= function(){
 };
 
 board.getState = function (cell_loc){
-  return this.state[(cell_loc[0]*this.width + cell_loc[1])];
+  var row = cell_loc[0];
+  var col = cell_loc[1];
+
+  //special boundary cases
+  if(row === -1) { row = (this.height - 1)} //off the grid top, wrap to bot
+  if(row === this.height) { row = 0 } //off the grid bot, wrap to top
+  if(col === -1) { col = (this.width - 1)} //off the grid left, wrap to right
+  if(col === this.width) { col = 0 } //off the grid right, wrap to left
+  
+  return this.state[(row * this.width + col)];
 };
 
 board.nextCellState = function (cell_loc){
@@ -69,6 +78,7 @@ board.nextCellState = function (cell_loc){
   var row = cell_loc[0];
   var col = cell_loc[1];
   var neighbors = [0,0,0,0,0,0,0,0]; //top, right, bottom, left, t-r, b-r, b-l, t-l
+
   //top neighbor check
   if(this.getState([(row - 1), col]) === 1){
     neighbors[0] = 1;
