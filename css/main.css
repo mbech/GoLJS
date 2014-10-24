@@ -58,3 +58,18 @@ button:hover{
   background-color: #0BDA00;
   color: black;
 }
+
+.timestep-selection{
+  color: #0BDA00;
+  height: 30px;
+  padding-top: 10px;
+  font-size: 1.3em;
+}
+
+#timestep-textbox{
+  display: inline-block;
+  width: 80px;
+}
+#timestep-label{
+  padding: 0 10px;
+}
