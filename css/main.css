@@ -26,8 +26,17 @@ body{
   background-color: black;
 }
 
-.board-buttons{
-  margin: 20px 30px;
+.stat-display{
+ margin: auto; 
+ background-color: white;
+ color: black;
+ font-size: 2em;
+ width: 500px; 
+}
+
+.stat-display div{
+  display: inline-block;
+  width: 45%;
 }
 
 button{
@@ -35,4 +44,8 @@ button{
   height: 50px;
   margin: 20px 20px;
   font-size: 1em;
+}
+
+.board-buttons{
+  margin: 20px 30px;
 }
