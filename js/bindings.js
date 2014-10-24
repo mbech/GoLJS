@@ -28,23 +28,31 @@ var initialBindings = function(){
       automate.advance();
     }
   });
-  
+
   $('#timestep-slider').on('change', function(){
-   $('#timestep-textbox').text($(this).val());
-   automate.set_timestep($(this).val());
-  })
-  
+    $('#timestep-textbox').text($(this).val());
+    automate.set_timestep($(this).val());
+  });
 
+  $('#sidebar').on('click', function(){
+    $(this).toggle();
+    $('#sidebar-show-strip').toggle();
+  });  
 
-    $( document ).on('click', '.gol-square', function(){
-      var $clicked_cell = $(this);
-      var cell_loc = $clicked_cell.data("loc");
-      if ($clicked_cell.hasClass("alive")){
-        board.setDead(cell_loc);
-      }else{
-        board.setAlive(cell_loc);
-      }
-      view.refresh(board); 
-    });
+  $('#sidebar-show-strip').on('click', function(){
+    $(this).toggle();
+    $('#sidebar').toggle();
+  });  
 
-  };
+  $( document ).on('click', '.gol-square', function(){
+    var $clicked_cell = $(this);
+    var cell_loc = $clicked_cell.data("loc");
+    if ($clicked_cell.hasClass("alive")){
+      board.setDead(cell_loc);
+    }else{
+      board.setAlive(cell_loc);
+    }
+    view.refresh(board); 
+  });
+
+};
