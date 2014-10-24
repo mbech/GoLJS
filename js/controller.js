@@ -5,6 +5,6 @@ $( document ).ready( function(){
   board.setAlive([3,3]);
   board.setAlive([3,2]);
   board.setAlive([2,1]);
-  view.drawBoard(board);
+  view.refresh(board);
   initialBindings();
 });
