@@ -28,16 +28,23 @@ var initialBindings = function(){
       automate.advance();
     }
   });
+  
+  $('#timestep-slider').on('change', function(){
+   $('#timestep-textbox').text($(this).val());
+   automate.set_timestep($(this).val());
+  })
+  
 
-  $( document ).on('click', '.gol-square', function(){
-    var $clicked_cell = $(this);
-    var cell_loc = $clicked_cell.data("loc");
-    if ($clicked_cell.hasClass("alive")){
-      board.setDead(cell_loc);
-    }else{
-      board.setAlive(cell_loc);
-    }
-    view.refresh(board); 
-  });
 
-};
+    $( document ).on('click', '.gol-square', function(){
+      var $clicked_cell = $(this);
+      var cell_loc = $clicked_cell.data("loc");
+      if ($clicked_cell.hasClass("alive")){
+        board.setDead(cell_loc);
+      }else{
+        board.setAlive(cell_loc);
+      }
+      view.refresh(board); 
+    });
+
+  };
