@@ -43,7 +43,7 @@ board.populateRandom = function(){
 board.updatePopulation = function(){
   this.population = this.state.reduce(function(prevValue, currentValue) {
     return prevValue + currentValue;
-  })
+  });
   return this.population;
 };
 
@@ -64,10 +64,10 @@ board.getState = function (cell_loc){
   var col = cell_loc[1];
 
   //special boundary cases
-  if(row === -1) { row = (this.height - 1)} //off the grid top, wrap to bot
-  if(row === this.height) { row = 0 } //off the grid bot, wrap to top
-  if(col === -1) { col = (this.width - 1)} //off the grid left, wrap to right
-  if(col === this.width) { col = 0 } //off the grid right, wrap to left
+  if(row === -1) { row = (this.height - 1);} //off the grid top, wrap to bot
+  if(row === this.height) { row = 0 ;} //off the grid bot, wrap to top
+  if(col === -1) { col = (this.width - 1);} //off the grid left, wrap to right
+  if(col === this.width) { col = 0 ;} //off the grid right, wrap to left
 
   return this.state[(row * this.width + col)];
 };
@@ -138,5 +138,5 @@ board.populateDemo = function(){
   } else {
     board.state = demo2;
   }
-}
+};
 
