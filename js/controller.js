@@ -1,6 +1,12 @@
 $( document ).ready( function(){
-  board.zero();
-  board.populateDemo();
-  view.refresh(board);
-  initialBindings();
+  GOL.init();
 });
+
+var GOL = {
+  init: function(){
+    board.zero();
+    board.populateDemo();
+    view.refresh(board);
+    initialBindings();
+  }
+};
